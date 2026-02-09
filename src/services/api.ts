@@ -61,4 +61,3 @@ export async function getHealth(): Promise<HealthResponse> {
   return request<HealthResponse>('/health');
 }
 
-export { ApiError };
