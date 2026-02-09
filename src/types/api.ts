@@ -7,12 +7,6 @@ export interface BroadcastResult {
   time_ms?: number;
 }
 
-export interface TxSize {
-  total_bytes: number;
-  vbytes: number;
-  is_segwit: boolean;
-}
-
 export interface OpReturn {
   count: number;
   sizes: number[];
@@ -30,7 +24,7 @@ export type DifficultyClass =
 
 export interface Classification {
   txid: string;
-  size: TxSize;
+  size: { total_bytes: number; vbytes: number; is_segwit: boolean };
   fee_rate_sat_vb: number | null;
   is_standard: boolean;
   difficulty_class: DifficultyClass;
@@ -110,21 +104,3 @@ export const POOL_NAMES: Record<string, string> = {
   blockcypher: 'BlockCypher',
 };
 
-// Difficulty class display
-export const DIFFICULTY_LABELS: Record<DifficultyClass, string> = {
-  trivial: 'Trivial',
-  easy: 'Easy',
-  moderate: 'Moderate',
-  hard: 'Hard',
-  extreme: 'Extreme',
-  near_impossible: 'Near Impossible',
-};
-
-export const DIFFICULTY_COLORS: Record<DifficultyClass, string> = {
-  trivial: '#22c55e',
-  easy: '#84cc16',
-  moderate: '#eab308',
-  hard: '#f97316',
-  extreme: '#ef4444',
-  near_impossible: '#dc2626',
-};

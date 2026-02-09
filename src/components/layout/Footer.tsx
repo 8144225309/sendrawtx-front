@@ -25,7 +25,7 @@ function Footer() {
           {/* Right - Links */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/yourusername/rawrelay"
+              href="https://github.com/8144225309/sendrawtx"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-[#a0a0a0] hover:text-white transition-colors"

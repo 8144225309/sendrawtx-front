@@ -1,48 +1,4 @@
-import { forwardRef, type InputHTMLAttributes, type TextareaHTMLAttributes } from 'react';
-
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  error?: string;
-  label?: string;
-}
-
-const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ error, label, className = '', id, ...props }, ref) => {
-    const inputId = id || label?.toLowerCase().replace(/\s+/g, '-');
-
-    return (
-      <div className="w-full">
-        {label && (
-          <label
-            htmlFor={inputId}
-            className="block text-sm font-medium text-[#a0a0a0] mb-1.5"
-          >
-            {label}
-          </label>
-        )}
-        <input
-          ref={ref}
-          id={inputId}
-          className={`
-            w-full px-4 py-2.5 rounded-lg
-            bg-[#252525] border border-[#333]
-            text-white placeholder-[#666]
-            focus:outline-none focus:border-[#f7931a] focus:ring-1 focus:ring-[#f7931a]
-            disabled:opacity-50 disabled:cursor-not-allowed
-            transition-colors
-            ${error ? 'border-[#ef4444] focus:border-[#ef4444] focus:ring-[#ef4444]' : ''}
-            ${className}
-          `}
-          {...props}
-        />
-        {error && (
-          <p className="mt-1.5 text-sm text-[#ef4444]">{error}</p>
-        )}
-      </div>
-    );
-  }
-);
-
-Input.displayName = 'Input';
+import { forwardRef, type TextareaHTMLAttributes } from 'react';
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: string;
@@ -88,4 +44,4 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 
 Textarea.displayName = 'Textarea';
 
-export { Input, Textarea };
+export { Textarea };
